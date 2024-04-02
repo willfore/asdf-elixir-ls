@@ -34,20 +34,19 @@ function install() {
   # the PATH. So execute them using some wrappers that set $0.
   cat <<EOF >./bin/elixir-ls
 
-  #!/bin/sh
-  exec ${install_path}/language_server.sh
-  EOF
-    cat <<EOF >./bin/elixir-ls-debugger
+#!/bin/sh
+exec ${install_path}/language_server.sh
+EOF
+cat <<EOF >./bin/elixir-ls-debugger
+#!/bin/sh
+exec ${install_path}/debug_adapter.sh
+EOF
+chmod +x ./bin/elixir-ls
+chmod +x ./bin/elixir-ls-debugger
+cp -fpr * "${install_path}"
 
-  #!/bin/sh
-  exec ${install_path}/debug_adapter.sh
-  EOF
-    chmod +x ./bin/elixir-ls
-    chmod +x ./bin/elixir-ls-debugger
-    cp -fpr * "${install_path}"
-
-    popd >/dev/null
-    popd >/dev/null
+popd >/dev/null
+popd >/dev/null
 }
 
 install "${ASDF_INSTALL_TYPE}" "${ASDF_INSTALL_VERSION}" "${ASDF_INSTALL_PATH}"
