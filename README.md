@@ -6,10 +6,9 @@
 ## Install
 
 ```bash
-asdf plugin-add elixir https://github.com/juantascon/asdf-elixir-ls
+asdf plugin add elixir https://github.com/juantascon/asdf-elixir-ls
 ```
 
 ## Use
 
 Check out the [asdf](https://github.com/asdf-vm/asdf) readme for instructions on how to install and manage versions of elixir-ls.
-
